@@ -51,4 +51,4 @@ jobs:
             --target-port 3000 \
             --ingress 'external' \
             --registry-server ${{ secrets.ACR_NAME }}.azurecr.io \
-            --registry-identity "SystemAssigned"
+            --registry-identity "system"
