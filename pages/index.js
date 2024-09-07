@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <div className="container">
       <Head>
-        <title>Parallo</title>
+        <title>DevOps CI CD Demonstration</title>
         <link rel="icon" href="/favicon.ico" />
         <link rel="stylesheet" href="/main.min.css" />
         <link rel="stylesheet" href="/theme-overrides.min.css" />
@@ -13,23 +13,15 @@ export default function Home() {
       <main>
         <div class="banner-content-wrapper">
           <h1 className="section-header">
-            Welcome to the Parallo DevOps interview exercise!
+            Hello World!
           </h1>
         </div>
         <div className="description">
           <p>
-            This is a short exercise for you to show us your DevOps skillset. You are free to use this repository as you wish, alternatively you may clone this repo to another source code repository if you prefer. This project is made using Next.js running on Node.js, so you'll need Node.js and Next.js installed.
+            This is a short exercise showcasing my devops skillset. 
           </p>
         </div>
         <div>
-          <h4>
-            For this exercise, things you may need are:          </h4>
-          <ol>
-            <li>Docker</li>
-            <li>Account with a cloud provider</li>
-            <li>Git and/or a Git client of your choice</li>
-            <li>Nodejs and npm</li>
-          </ol>
           <h4>
             When you finish, you will have:
           </h4>
@@ -42,11 +34,6 @@ export default function Home() {
           </ol>
         </div>
         <div className="description">
-          <h1 className="section-header">
-            Good luck!
-          </h1>
-          <p>If you run out of time, sketch out your proposed solution so we can discuss your approach. We'd rather explore that than get too caught up in the specific implementation details.
-          </p>
         </div>
       </main >
 
