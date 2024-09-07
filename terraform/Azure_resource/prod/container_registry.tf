@@ -13,7 +13,7 @@ module "prod_rg" {
 
 module "container_registry" {
   source              = "../modules/container_registry"
-  acr_name            = "prodacr"
+  acr_name            = "prodacrrab123"
   location            = local.location
   resource_group_name = module.prod_rg.resource_group_name # This is to create implicit dependencies so that subnet gets created after resource resource_group
 }
