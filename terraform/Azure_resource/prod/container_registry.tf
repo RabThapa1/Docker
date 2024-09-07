@@ -21,6 +21,6 @@ module "container_registry" {
 module "container_app_environment" {
   source                         = "../modules/container_app_environment"
   container_app_environment_name = "prod"
-  location                          = local.location
+  location                       = local.location
   resource_group_name            = module.prod_rg.resource_group_name # This is to create implicit dependencies so that subnet gets created after resource resource_group
 }
