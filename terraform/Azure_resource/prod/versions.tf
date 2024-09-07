@@ -1,11 +1,5 @@
 provider "azurerm" {
   features {}
   resource_provider_registrations = "none"
-  subscription_id                 = var.subscription_id
-}
-
-variable "subscription_id" {
-  description = "The Azure Subscription ID to use for the deployment."
-  type        = string
-  sensitive   = true
+  subscription_id                 = "58f45513-42f0-4fcf-b015-91a11c7f911b"
 }

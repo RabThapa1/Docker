@@ -29,8 +29,6 @@ jobs:
         id: init
         run: terraform init
         working-directory: terraform
-        env:
-          ARM_SUBSCRIPTION_ID: ${{ secrets.SUBSCRIPTION_ID }}
 
       - name: 'Terraform Format'
         id: fmt
@@ -49,15 +47,12 @@ jobs:
         run: terraform plan -no-color
         working-directory: terraform
         continue-on-error: false
-        env:
-          ARM_SUBSCRIPTION_ID: ${{ secrets.SUBSCRIPTION_ID }}        
+ 
 
       - name: 'Terraform apply'
         id: apply
         run: terraform apply --auto-approve
-        working-directory: terraform
-        env:
-          ARM_SUBSCRIPTION_ID: ${{ secrets.SUBSCRIPTION_ID }}        
+        working-directory: terraform 
   
   build-and-deploy:
     name: 'Build and Deploy'
