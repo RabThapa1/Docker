@@ -29,6 +29,8 @@ jobs:
         id: init
         run: terraform init
         working-directory: terraform
+        env:
+          ARM_SUBSCRIPTION_ID: ${{ secrets.SUBSCRIPTION_ID }}
 
       - name: 'Terraform Format'
         id: fmt
@@ -47,11 +49,15 @@ jobs:
         run: terraform plan -no-color
         working-directory: terraform
         continue-on-error: false
+        env:
+          ARM_SUBSCRIPTION_ID: ${{ secrets.SUBSCRIPTION_ID }}        
 
       - name: 'Terraform apply'
         id: apply
         run: terraform apply --auto-approve
         working-directory: terraform
+        env:
+          ARM_SUBSCRIPTION_ID: ${{ secrets.SUBSCRIPTION_ID }}        
   
   build-and-deploy:
     name: 'Build and Deploy'
@@ -103,3 +109,14 @@ jobs:
             --registry-server ${{ secrets.ACR_NAME }}.azurecr.io \
             --registry-identity "system" \
             --environment ${{ env.ENVIRONMENT_NAME }}
+
+      - name: Retrieve Container App Url
+        id: get-url
+        run: |
+          container_app_url = $(az containerapp show --name mycontainerapp --resource-group ${{ secrets.RESOURCE_GROUP}} --query "properties.configuration.ingress.fqdn" -o tsv )
+          echo "Container App URL: $container_app_url"
+          echo "CONTAINER_APP_URL=$container_app_url" >> $GITHUB_ENV   
+
+      - name: User Container App URL
+        run: |
+          echo "The deployed application is available at: ${{ env.CONTAINER_APP_URL }}"      

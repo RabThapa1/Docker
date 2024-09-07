@@ -1,26 +1,46 @@
-# Welcome to the Parallo DevOps interview exercise!
+# DevOps Workflow: Deploying Node.js Apps to Azure with Terraform and Docker
 
-This is a short exercise for you to show us your DevOps skillset. You are free to use this repository as you wish, alternatively you may clone this repo to another source code repository if you prefer. 
+This repository demonstrates a complete DevOps workflow for deploying a Node.js application using Azure services. It integrates Terraform for infrastructure management, Docker for containerization, and GitHub Actions for CI/CD. This project showcases various DevOps skills and provides a streamlined process for application deployment to Azure.
 
-This project is made using Next.js running on Node.js, so you'll need Node.js and Next.js installed. You can get those here: https://nodejs.org/en/download/
+## Skills Demonstrated
 
-### For this exercise, things you may need are:
-- Docker
-- Account with a cloud provider
-- Git and/or a Git client of your choice
-- Nodejs and npm, which can be downloaded [here](https://nodejs.org/en/download/)
+- **Infrastructure as Code**: Using Terraform to define and provision Azure resources.
+- **Containerization**: Building Docker images for a Node.js application.
+- **CI/CD Automation**: Automating the deployment pipeline with GitHub Actions.
 
-### When you finish, you will have:
-- A containerised app
-- A deployment pipeline
-- A container deployed to resources in a public cloud
-- Infrastructure as Code templates
-- A secure way to store private credentials
+## Folder Structure
 
-## To run this project
-1. Run `npm install` 
-1. Navigate to inside this directory and run `npm run dev`. It should then run the server on `localhost:3000`.
-1. If it doesn't install properly, the manual installation instructions are here: https://nextjs.org/docs/getting-started#manual-setup
+Here’s an overview of the folder structure:
 
-## Good luck!
-If you run out of time, sketch out your proposed solution so we can discuss your approach. We'd rather explore that than get too caught up in the specific implementation details.
+- **.github/workflows/deploy.yml**: Contains the GitHub Actions workflow for automating the deployment process.
+- **pages/**: Contains the `index.js` file for the Node.js application.
+- **public/**: Contains CSS files and other static assets.
+- **terraform/**: Contains Terraform configuration files for creating and managing Azure resources.
+  - **modules/**: Contains reusable Terraform blocks.
+  - **prod/**: Terraform configurations for the production environment.
+  - **dev/**: Terraform configurations for the development environment.
+  - **nonprod/**: Terraform configurations for non-production resources.
+- **dockerfile**: Defines how to build the Docker image for the Node.js application.
+- **.dockerignore**: Specifies files and directories to exclude from the Docker build context.
+- **.gitignore**: Specifies files and directories to ignore in the Git repository.
+- **package.json**: Defines the project metadata, dependencies, and scripts for the Node.js application.
+- **package-lock.json**: Ensures consistent dependency versions and faster installation.
+
+## Terraform Configuration
+
+The `terraform/` directory contains Terraform configuration files for creating Azure resources. This includes setting up Azure Container Registry, Azure Container Apps, and other necessary infrastructure components.
+
+## Deployment Process
+
+The deployment process is automated through a GitHub Actions workflow defined in `.github/workflows/deploy.yml`. This workflow handles:
+
+1. Building and pushing the Docker image to ACR.
+2. Creating and updating Azure Container Apps with the new image.
+
+For detailed steps on configuring and using the GitHub Actions workflow, refer to the `deploy.yml` file in the `.github/workflows/` directory.
+
+## Additional Information
+
+This repository integrates Terraform, Docker, and GitHub Actions to provide a streamlined process for deploying Node.js applications to Azure. The Terraform configurations manage infrastructure, Docker handles containerization, and GitHub Actions automates the deployment pipeline.
+
+For further information or issues, please refer to the respective documentation or reach out for support.

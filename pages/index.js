@@ -23,14 +23,13 @@ export default function Home() {
         </div>
         <div>
           <h4>
-            When you finish, you will have:
+           Finished project containes
           </h4>
           <ol>
             <li>A containerised app</li>
             <li>A deployment pipeline</li>
             <li>A container deployed to resources in a public cloud</li>
             <li>Infrastructure as Code templates</li>
-            <li>A secure way to store private credentials</li>
           </ol>
         </div>
         <div className="description">
