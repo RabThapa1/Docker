@@ -100,3 +100,4 @@ jobs:
             --ingress 'external' \
             --registry-server ${{ secrets.ACR_NAME }}.azurecr.io \
             --registry-identity "system"
+              --environment ${{ secrets.CONTAINERAPPS_ENVIRONMENT_ID }}
