@@ -84,6 +84,12 @@ jobs:
           docker build -t ${{ secrets.ACR_NAME }}.azurecr.io/myapp:latest .
           docker push ${{ secrets.ACR_NAME }}.azurecr.io/myapp:latest
 
+      - name: Retrieve Azure Container Apps Environment ID
+        id: get-environment-id
+        run: |
+          environment_id=$(az containerapp env list --resource-group ${{ secrets.RESOURCE_GROUP }} --query "[].id" -o tsv)
+          echo "ENVIRONMENT_ID=$environment_id" >> $GITHUB_ENV
+
       - name: Deploy to Azure Container Apps
         run: |
           az containerapp create \
