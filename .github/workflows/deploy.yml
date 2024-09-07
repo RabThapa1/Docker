@@ -87,7 +87,7 @@ jobs:
       - name: Retrieve Azure Container Apps Environment ID
         id: get-environment-id
         run: |
-          environment_id=$(az containerapp env list --resource-group ${{ secrets.RESOURCE_GROUP }} --query "[].id" -o tsv)
+          environment_id=$(az containerapp env list --resource-group ${{ secrets.RESOURCE_GROUP }} --query "[].name" -o tsv)
           echo "ENVIRONMENT_ID=$environment_id" >> $GITHUB_ENV
 
       - name: Deploy to Azure Container Apps
