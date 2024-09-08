@@ -105,13 +105,13 @@ jobs:
             --registry-identity "system" \
             --environment ${{ env.ENVIRONMENT_NAME }}
 
-      - name: Retrieve Container App Url
+      - name: Retrieve Container App URL
         id: get-url
         run: |
-          container_app_url = $(az containerapp show --name mycontainerapp --resource-group ${{ secrets.RESOURCE_GROUP}} --query "properties.configuration.ingress.fqdn" -o tsv )
+          container_app_url=$(az containerapp show --name mycontainerapp --resource-group ${{ secrets.RESOURCE_GROUP }} --query "properties.configuration.ingress.fqdn" -o tsv)
           echo "Container App URL: $container_app_url"
-          echo "CONTAINER_APP_URL=$container_app_url" >> $GITHUB_ENV   
+          echo "CONTAINER_APP_URL=$container_app_url" >> $GITHUB_ENV
 
-      - name: User Container App URL
+      - name: Use Container App URL
         run: |
-          echo "The deployed application is available at: ${{ env.CONTAINER_APP_URL }}"      
+          echo "The deployed application is av
