@@ -114,4 +114,4 @@ jobs:
 
       - name: Use Container App URL
         run: |
-          echo "The deployed application is av
+          echo "The deployed application is available at: ${{ env.CONTAINER_APP_URL }}
