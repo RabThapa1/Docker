@@ -42,5 +42,3 @@ For detailed steps on configuring and using the GitHub Actions workflow, refer t
 ## Additional Information
 
 This repository integrates Terraform, Docker, and GitHub Actions to provide a streamlined process for deploying Node.js applications to Azure. The Terraform configurations manage infrastructure, Docker handles containerization, and GitHub Actions automates the deployment pipeline.
-
-For further information or issues, please refer to the respective documentation or reach out for support.
